@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
 import { equalTo, rangeLength } from '@ng-validators/ng-validators';
 import { fromEvent, merge, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -24,7 +25,8 @@ export class CadastroComponent implements OnInit, AfterViewInit {
 
   constructor(
     private fb: FormBuilder,
-    private contaService: ContaService
+    private contaService: ContaService,
+    private router: Router
   ) {
     this.validationMessages = {
       email: {
@@ -72,17 +74,22 @@ export class CadastroComponent implements OnInit, AfterViewInit {
       this.contaService.registrarUsuario(this.usuario)
       .subscribe(
         sucesso => {this.processarSucesso(sucesso)},
-        falha => {this.processarSucesso(falha)}
+        falha => {this.processarFalha(falha)}
       );
     }
   }
 
   processarSucesso(response: any) {
-    console.log(response);
+    this.cadastroForm.reset();
+    this.errors = [];
+
+    this.contaService.LocalStorage.salvarDadosLocaisUsuario(response);
+
+    this.router.navigate(['/home']);
   }
 
   processarFalha(fail: any) {
-    console.error(fail);
+    this.errors = fail.error.errors;
   }
 
 }
