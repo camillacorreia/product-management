@@ -1,7 +1,7 @@
 export class LocalStorageUtils {
 
   public obterUsuario() {
-    return JSON.parse(localStorage.getItem('devio.token') ?? 'null');
+    return JSON.parse(localStorage.getItem('devio.user') ?? 'null');
   }
 
   public salvarDadosLocaisUsuario(response: any) {
