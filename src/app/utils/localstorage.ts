@@ -14,8 +14,8 @@ export class LocalStorageUtils {
     localStorage.removeItem('devio.user');
   }
 
-  public obterTokenUsuario(): string {
-    return localStorage.getItem('devio.token') ?? '';
+  public obterTokenUsuario(): string | null {
+    return localStorage.getItem('devio.token') ?? null;
   }
 
   public salvarTokenUsuario(token: string) {

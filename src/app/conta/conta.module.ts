@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgValidatorsModule } from '@ng-validators/ng-validators';
+import { ContaGuard } from './services/conta.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NgValidatorsModule } from '@ng-validators/ng-validators';
     NgValidatorsModule
   ],
   providers: [
-    ContaService
+    ContaService,
+    ContaGuard
   ]
 })
 export class ContaModule { }

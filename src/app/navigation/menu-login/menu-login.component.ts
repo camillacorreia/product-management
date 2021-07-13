@@ -8,7 +8,7 @@ import { LocalStorageUtils } from 'src/app/utils/localstorage';
 })
 export class MenuLoginComponent {
 
-  token: string = "";
+  token: string | null = "";
   user: any;
   email: string = "";
   localStorageUtils = new LocalStorageUtils();
@@ -23,7 +23,7 @@ export class MenuLoginComponent {
       this.email = this.user.email;
     }
 
-    return this.token !== '';
+    return this.token !== null;
   }
 
   logout() {
