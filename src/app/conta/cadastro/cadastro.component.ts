@@ -65,12 +65,24 @@ export class CadastroComponent implements OnInit, AfterViewInit {
     });
   }
 
-  adicionarUsuario() {
+  adicionarConta() {
     if(this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.usuario = Object.assign({}, this.usuario, this.cadastroForm.value);
 
-      this.contaService
+      this.contaService.registrarUsuario(this.usuario)
+      .subscribe(
+        sucesso => {this.processarSucesso(sucesso)},
+        falha => {this.processarSucesso(falha)}
+      );
     }
+  }
+
+  processarSucesso(response: any) {
+    console.log(response);
+  }
+
+  processarFalha(fail: any) {
+    console.error(fail);
   }
 
 }
