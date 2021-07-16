@@ -1,3 +1,4 @@
+import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
@@ -15,7 +16,8 @@ import { MenuLoginComponent } from './menu-login/menu-login.component';
     HomeComponent,
     FooterComponent,
     NotFoundComponent,
-    MenuLoginComponent
+    MenuLoginComponent,
+    AcessoNegadoComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { MenuLoginComponent } from './menu-login/menu-login.component';
     MenuComponent,
     HomeComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AcessoNegadoComponent
   ]
 })
 export class NavigationModule { }

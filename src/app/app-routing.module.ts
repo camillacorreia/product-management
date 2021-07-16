@@ -1,15 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AcessoNegadoComponent } from './navigation/acesso-negado/acesso-negado.component';
 import { HomeComponent } from './navigation/home/home.component';
 import { NotFoundComponent } from './navigation/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'conta',
-  loadChildren: () => import('./conta/conta.module')
-    .then(m => m.ContaModule)
+  {
+    path: 'conta',
+    loadChildren: () => import('./conta/conta.module')
+      .then(m => m.ContaModule)
   },
+  {
+    path: 'fornecedores',
+    loadChildren: () => import('./fornecedor/fornecedor.module')
+      .then(m => m.FornecedorModule)
+  },
+  {
+    path: 'produtos',
+    loadChildren: () => import('./produto/produto.module')
+      .then(m => m.ProdutoModule)
+  },
+  { path: 'acesso-negado', component: AcessoNegadoComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

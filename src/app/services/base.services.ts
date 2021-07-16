@@ -14,6 +14,15 @@ export abstract class BaseService {
     };
   }
 
+  protected ObterAuthHeaderJson() {
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.LocalStorage.obterTokenUsuario()}`
+      })
+    };
+}
+
   protected extractData(response: any) {
     return response.data || {};
   }
