@@ -1,27 +1,53 @@
-# ProductManagement
+# Product Management
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+Projeto desenvolvido no projeto final do curso "Desenvolvimento Avançado em Angular" da plataforma @desenvolvedor.io.
+No backend foi utilizada a API disponibilizada no curso.
 
-## Development server
+#### O sistema possui:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Cadastro de usuário;
+- Login;
+- CRUD de fornecedor;
+- CRUD de produto.
 
-## Code scaffolding
+#### Foi aplicado:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Lazy Loading para carregamento de módulos;
+- Guarda de rotas;
+- HttpCustomInterceptor;
+- Validação de formulário;
+- Verificação de CPF/CNPJ válidos;
+- Redirect à rota não autorizada após fazer o login;
+- Resolvers;
+- Pipes;
+- Diretivas;
+- Upload de imagem.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Preparando o ambiente
 
-## Running unit tests
+# Back-end
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Docker
 
-## Running end-to-end tests
+- Instalar (https://www.docker.com/products/docker-desktop)
+- Instalar extensão no vsCode (https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+- Arquivos disponibilizados pela plataforma do curso (não é necessário baixar):
+  - https://github.com/desenvolvedor-io/curso-angular-avancado
+- Execute os comandos abaixo no seu terminal:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+`cd back-end`
 
-## Further help
+`docker-compose -f docker-compose.backend.yml up`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Após o processo finalizar, os containers irão aparecer na sua extensão do vsCode.
+- Documentação da API, com os containers rodando acesse: http://localhost:5001/swagger/index.html
+
+# Front-end
+
+`npm install`
+
+#### Server
+
+`ng serve`
